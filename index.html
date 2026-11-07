@@ -78,11 +78,13 @@
             border-color: rgba(0, 242, 254, 0.6);
             box-shadow: 0 20px 40px -10px rgba(0, 242, 254, 0.25);
         }
-        .mockup-container {
-            transition: transform 0.5s ease;
+        .phone-mockup {
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
         }
-        .cyber-card:hover .mockup-container {
-            transform: translateY(-4px) scale(1.03);
+        .cyber-card:hover .phone-mockup {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 15px 30px -5px rgba(0, 242, 254, 0.25);
+            border-color: rgba(0, 242, 254, 0.5);
         }
         .click-spark {
             position: absolute;
@@ -90,3 +92,548 @@
             height: 80px;
             border-radius: 50%;
             background: radial-gradient(circle, rgba(0,242,254,0.8) 0%, rgba(79,172,254,0) 70%);
+            transform: translate(-50%, -50%) scale(0);
+            pointer-events: none;
+            animation: sparkEffect 0.6s ease-out forwards;
+            z-index: 9999;
+        }
+        @keyframes sparkEffect {
+            0% { transform: translate(-50%, -50%) scale(0.2); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(2.2); opacity: 0; }
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #050508; }
+        ::-webkit-scrollbar-thumb { background: #1f202e; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb-hover:hover { background: #00f2fe; }
+    </style>
+</head>
+<body class="bg-darkbg text-zinc-100 antialiased selection:bg-cyan-500 selection:text-black">
+
+    <canvas id="tech-canvas"></canvas>
+
+    <div class="content-layer min-h-screen flex flex-col justify-between">
+
+        <!-- Header -->
+        <header class="sticky top-0 z-50 backdrop-blur-xl bg-darkbg/85 border-b border-bordercolor">
+            <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center font-black text-black text-lg tracking-wider shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform font-mono">
+                        b8
+                    </div>
+                    <div>
+                        <span class="font-extrabold text-lg tracking-tight block text-white font-mono">bit8<span class="text-cyan-400">.dev</span></span>
+                        <span class="text-[10px] text-zinc-400 font-mono tracking-widest uppercase">Development Studio</span>
+                    </div>
+                </a>
+
+                <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400">
+                    <a href="#hero" class="hover:text-cyan-400 transition-colors">Core</a>
+                    <a href="#projects" class="hover:text-cyan-400 transition-colors">Aplicaciones & Juegos</a>
+                    <a href="#specs" class="hover:text-cyan-400 transition-colors">Especialidades</a>
+                    <a href="#contact" class="hover:text-cyan-400 transition-colors">Contacto</a>
+                </nav>
+
+                <div class="flex items-center gap-4">
+                    <a href="#contact" class="interactive-btn hidden sm:inline-flex items-center justify-center px-4 py-2 rounded-lg text-xs font-mono font-bold bg-cyan-950/60 text-cyan-400 border border-cyan-800/60 hover:bg-cyan-900/50 hover:text-white transition-all">
+                        &gt; INIT_CONTACT
+                    </a>
+                    <button id="mobile-menu-btn" class="md:hidden text-zinc-400 hover:text-white text-xl p-2">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="mobile-menu" class="hidden md:hidden px-6 pb-6 pt-2 bg-darkbg/95 border-b border-bordercolor flex flex-col gap-4">
+                <a href="#hero" class="text-sm font-mono text-zinc-300 hover:text-cyan-400 py-1">/core</a>
+                <a href="#projects" class="text-sm font-mono text-zinc-300 hover:text-cyan-400 py-1">/apps_&_games</a>
+                <a href="#specs" class="text-sm font-mono text-zinc-300 hover:text-cyan-400 py-1">/specs</a>
+                <a href="#contact" class="text-sm font-mono text-zinc-300 hover:text-cyan-400 py-1">/contact</a>
+            </div>
+        </header>
+
+        <!-- Hero -->
+        <section id="hero" class="relative px-6 pt-24 pb-20 md:pt-36 md:pb-32 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7 flex flex-col items-start text-left">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-950/60 border border-cyan-800/50 text-cyan-400 text-xs font-mono mb-6 tracking-wide shadow-inner">
+                    <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+                    SYS_STATUS: ONLINE // CROSS-PLATFORM & GAMES
+                </div>
+                
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white mb-6 leading-[1.1]">
+                    Engineering the <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400">digital frontier.</span>
+                </h1>
+                
+                <p class="text-lg md:text-xl text-zinc-400 mb-8 max-w-2xl font-normal leading-relaxed">
+                    Somos <strong class="text-white font-semibold">bit8 development</strong>. Creamos aplicaciones móviles, videojuegos inmersivos y software multiplataforma de alto rendimiento con estética cyberpunk y precisión de ingeniería.
+                </p>
+
+                <div class="flex flex-wrap gap-4 w-full sm:w-auto">
+                    <a href="#projects" class="interactive-btn px-7 py-3.5 rounded-xl font-mono text-xs font-bold bg-gradient-to-r from-cyan-500 to-blue-600 text-black hover:from-cyan-400 hover:to-blue-500 transition-all flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/25">
+                        EXPLORAR PORTAFOLIO <i class="fa-solid fa-arrow-down text-xs"></i>
+                    </a>
+                    <a href="#contact" class="interactive-btn px-7 py-3.5 rounded-xl font-mono text-xs font-semibold bg-darkbg border border-bordercolor text-zinc-300 hover:border-cyan-500/50 hover:text-white transition-all flex items-center justify-center gap-2">
+                        PROPONER PROYECTO
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-3 gap-6 mt-16 pt-12 border-t border-bordercolor w-full font-mono">
+                    <div>
+                        <div class="text-2xl md:text-3xl font-black text-cyan-400">19K+</div>
+                        <div class="text-[11px] text-zinc-500 mt-1 uppercase">Descargas (Sale Notes)</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl md:text-3xl font-black text-blue-400">5+</div>
+                        <div class="text-[11px] text-zinc-500 mt-1 uppercase">Apps & Juegos Propios</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl md:text-3xl font-black text-indigo-400">100%</div>
+                        <div class="text-[11px] text-zinc-500 mt-1 uppercase">Multiplataforma</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 relative">
+                <div class="relative w-full aspect-square rounded-3xl bg-gradient-to-br from-cardbg to-darkbg border border-bordercolor p-8 flex flex-col justify-between cyber-glow overflow-hidden">
+                    <div class="absolute -top-10 -right-10 w-40 h-40 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                    
+                    <div class="flex items-center justify-between z-10 font-mono text-xs">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-yellow-500"></span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span>
+                        </div>
+                        <span class="text-cyan-400 bg-cyan-950/50 px-2.5 py-1 rounded border border-cyan-800/40">bit8_core.exe</span>
+                    </div>
+
+                    <div class="my-auto z-10 py-6">
+                        <div class="font-mono text-xs text-cyan-400 mb-2">// DESARROLLO PROPIO ACTIVO</div>
+                        <div class="text-2xl font-bold text-white mb-3">Suite de Aplicaciones & Juegos</div>
+                        <p class="text-sm text-zinc-400 mb-6 leading-relaxed">
+                            Diseñado desde cero para Android, iOS, Web y Escritorio. Eficiencia, velocidad y control total de datos.
+                        </p>
+                        
+                        <div class="space-y-3 font-mono text-xs">
+                            <div class="flex justify-between p-3 rounded-xl bg-zinc-900/60 border border-bordercolor">
+                                <span class="text-zinc-300">Sale Notes (Productividad)</span>
+                                <span class="text-cyan-400 font-bold">19k+ Downloads</span>
+                            </div>
+                            <div class="flex justify-between p-3 rounded-xl bg-zinc-900/60 border border-bordercolor">
+                                <span class="text-zinc-300">Sudoki (Procedural Puzzle)</span>
+                                <span class="text-blue-400 font-bold">Active Engine</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-4 border-t border-bordercolor z-10 text-[11px] text-zinc-500 font-mono">
+                        <span>EST. 2026</span>
+                        <span class="text-cyan-400 flex items-center gap-1"><i class="fa-solid fa-bolt"></i> HIGH PERF</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" class="py-24 px-6 max-w-7xl mx-auto w-full">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-mono text-cyan-400 uppercase tracking-widest bg-cyan-950/40 px-3.5 py-1.5 rounded-full border border-cyan-900/50">Portafolio de Creación Propia</span>
+                <h2 class="text-3xl md:text-5xl font-black text-white mt-4 mb-6">Apps & Juegos Desarrollados</h2>
+                <p class="text-zinc-400 text-base md:text-lg">Explora nuestra colección exclusiva de aplicaciones de productividad, rompecabezas procedurales y juegos arcade multiplataforma en Google Play.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Sale Notes -->
+                <div class="cyber-card border border-bordercolor rounded-2xl p-7 flex flex-col justify-between">
+                    <div>
+                        <!-- Mockup de Pantalla de Celular (Estética Original) -->
+                        <div class="phone-mockup w-36 mx-auto mb-6 bg-zinc-950 border-2 border-zinc-800 rounded-3xl p-2.5 shadow-xl shadow-cyan-950/20">
+                            <div class="w-12 h-2.5 bg-zinc-800 rounded-full mx-auto mb-2"></div>
+                            <div class="bg-emerald-950/30 border border-emerald-900/40 rounded-2xl p-3 text-center font-mono text-[10px]">
+                                <div class="text-emerald-400 font-bold mb-1">// SALE NOTES</div>
+                                <div class="bg-zinc-900/90 rounded p-1.5 mb-2 text-zinc-300 text-[9px]">19K+ DL</div>
+                                <div class="text-[8px] text-zinc-500">Offline-First</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-[11px] font-mono px-3 py-1 rounded-full bg-emerald-950/60 border border-emerald-800/50 text-emerald-400">Productividad / Comercial</span>
+                            <span class="text-xs text-cyan-400 font-mono font-bold">19k+ Descargas</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Sale Notes</h3>
+                        <p class="text-sm text-zinc-400 mb-6 leading-relaxed">
+                            Notas de venta y gestión comercial ligera para negocios. Superando las 19,000 descargas con control de inventario offline-first, tickets instantáneos y cálculo de cierres diarios.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex items-center justify-between text-[11px] font-mono text-zinc-500 mb-3 bg-zinc-900/50 px-3 py-1.5 rounded-lg border border-zinc-800/60">
+                            <span>iOS App Store</span>
+                            <span class="text-cyan-400/90 font-semibold flex items-center gap-1"><i class="fa-solid fa-clock text-[10px]"></i> PRÓXIMAMENTE</span>
+                        </div>
+                        <div class="pt-4 border-t border-bordercolor flex items-center justify-between font-mono text-xs">
+                            <span class="text-zinc-500">Android / Google Play</span>
+                            <a href="https://play.google.com/store/apps/details?id=com.bit8.SellNotes" target="_blank" rel="noopener noreferrer" class="interactive-btn px-4 py-2 rounded-lg bg-cyan-950/60 text-cyan-400 border border-cyan-800/60 hover:bg-cyan-900/50 hover:text-white font-bold flex items-center gap-1.5 transition-all">
+                                <i class="fa-brands fa-google-play"></i> INSTALAR
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sudoki -->
+                <div class="cyber-card border border-bordercolor rounded-2xl p-7 flex flex-col justify-between">
+                    <div>
+                        <!-- Mockup de Pantalla de Celular (Estética Original) -->
+                        <div class="phone-mockup w-36 mx-auto mb-6 bg-zinc-950 border-2 border-zinc-800 rounded-3xl p-2.5 shadow-xl shadow-purple-950/20">
+                            <div class="w-12 h-2.5 bg-zinc-800 rounded-full mx-auto mb-2"></div>
+                            <div class="bg-purple-950/30 border border-purple-900/40 rounded-2xl p-3 text-center font-mono text-[10px]">
+                                <div class="text-purple-400 font-bold mb-1">▪ SUDOKI</div>
+                                <div class="grid grid-cols-2 gap-1 mb-2">
+                                    <div class="bg-zinc-900 text-purple-300 py-1 rounded text-[9px]">5</div>
+                                    <div class="bg-zinc-900 text-purple-300 py-1 rounded text-[9px]">9</div>
+                                </div>
+                                <div class="text-[8px] text-zinc-500">Procedural Engine</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-[11px] font-mono px-3 py-1 rounded-full bg-purple-950/60 border border-purple-800/50 text-purple-400">Juego / Puzzle</span>
+                            <span class="text-xs text-purple-400 font-mono">Motor Procedural</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Sudoki</h3>
+                        <p class="text-sm text-zinc-400 mb-6 leading-relaxed">
+                            Juego avanzado de Sudoku con generación procedural infinita de tableros. Interfaz cyberpunk minimalista, control de dificultad adaptativo y modos sin conexión.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex items-center justify-between text-[11px] font-mono text-zinc-500 mb-3 bg-zinc-900/50 px-3 py-1.5 rounded-lg border border-zinc-800/60">
+                            <span>iOS App Store</span>
+                            <span class="text-cyan-400/90 font-semibold flex items-center gap-1"><i class="fa-solid fa-clock text-[10px]"></i> PRÓXIMAMENTE</span>
+                        </div>
+                        <div class="pt-4 border-t border-bordercolor flex items-center justify-between font-mono text-xs">
+                            <span class="text-zinc-500">Android / Google Play</span>
+                            <a href="https://play.google.com/store/apps/details?id=com.bit8.sudoki" target="_blank" rel="noopener noreferrer" class="interactive-btn px-4 py-2 rounded-lg bg-cyan-950/60 text-cyan-400 border border-cyan-800/60 hover:bg-cyan-900/50 hover:text-white font-bold flex items-center gap-1.5 transition-all">
+                                <i class="fa-brands fa-google-play"></i> INSTALAR
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- One-Tap Defender -->
+                <div class="cyber-card border border-bordercolor rounded-2xl p-7 flex flex-col justify-between">
+                    <div>
+                        <!-- Mockup de Pantalla de Celular (Estética Original) -->
+                        <div class="phone-mockup w-36 mx-auto mb-6 bg-zinc-950 border-2 border-zinc-800 rounded-3xl p-2.5 shadow-xl shadow-red-950/20">
+                            <div class="w-12 h-2.5 bg-zinc-800 rounded-full mx-auto mb-2"></div>
+                            <div class="bg-red-950/30 border border-red-900/40 rounded-2xl p-3 text-center font-mono text-[10px]">
+                                <div class="text-red-400 font-bold mb-1">DEFENDER</div>
+                                <div class="w-6 h-6 rounded-full bg-red-500/20 border border-red-500 mx-auto my-1 flex items-center justify-center">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-red-400 animate-ping"></div>
+                                </div>
+                                <div class="text-[8px] text-zinc-400 mt-1">60 FPS Reflejos</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-[11px] font-mono px-3 py-1 rounded-full bg-red-950/60 border border-red-800/50 text-red-400">Juego / Arcade</span>
+                            <span class="text-xs text-red-400 font-mono">Alta Velocidad</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">One-Tap Defender</h3>
+                        <p class="text-sm text-zinc-400 mb-6 leading-relaxed">
+                            Juego arcade de reflejos extremos donde un solo toque en el momento preciso desvía oleadas de amenazas espaciales. Diseñado con físicas optimizadas a 60 FPS.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex items-center justify-between text-[11px] font-mono text-zinc-500 mb-3 bg-zinc-900/50 px-3 py-1.5 rounded-lg border border-zinc-800/60">
+                            <span>iOS App Store</span>
+                            <span class="text-cyan-400/90 font-semibold flex items-center gap-1"><i class="fa-solid fa-clock text-[10px]"></i> PRÓXIMAMENTE</span>
+                        </div>
+                        <div class="pt-4 border-t border-bordercolor flex items-center justify-between font-mono text-xs">
+                            <span class="text-zinc-500">Android / Google Play</span>
+                            <a href="https://play.google.com/store/apps/details?id=com.bit8.OneTapDefender" target="_blank" rel="noopener noreferrer" class="interactive-btn px-4 py-2 rounded-lg bg-cyan-950/60 text-cyan-400 border border-cyan-800/60 hover:bg-cyan-900/50 hover:text-white font-bold flex items-center gap-1.5 transition-all">
+                                <i class="fa-brands fa-google-play"></i> INSTALAR
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sheldon's Whip -->
+                <div class="cyber-card border border-bordercolor rounded-2xl p-7 flex flex-col justify-between">
+                    <div>
+                        <!-- Mockup de Pantalla de Celular (Estética Original) -->
+                        <div class="phone-mockup w-36 mx-auto mb-6 bg-zinc-950 border-2 border-zinc-800 rounded-3xl p-2.5 shadow-xl shadow-amber-950/20">
+                            <div class="w-12 h-2.5 bg-zinc-800 rounded-full mx-auto mb-2"></div>
+                            <div class="bg-amber-950/30 border border-amber-900/40 rounded-2xl p-3 text-center font-mono text-[10px]">
+                                <div class="text-amber-400 font-bold mb-1">WHIP.exe</div>
+                                <div class="text-amber-300 text-lg my-1"><i class="fa-solid fa-bolt"></i></div>
+                                <div class="text-[8px] text-zinc-400">Acelerómetro</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-[11px] font-mono px-3 py-1 rounded-full bg-amber-950/60 border border-amber-800/50 text-amber-400">App Interactiva</span>
+                            <span class="text-xs text-amber-400 font-mono">Acelerómetro</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Sheldon's Whip</h3>
+                        <p class="text-sm text-zinc-400 mb-6 leading-relaxed">
+                            Simulador interactivo de efectos de sonido estilo látigo con integración del acelerómetro del dispositivo para generar respuestas gestuales instantáneas y divertidas.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex items-center justify-between text-[11px] font-mono text-zinc-500 mb-3 bg-zinc-900/50 px-3 py-1.5 rounded-lg border border-zinc-800/60">
+                            <span>iOS App Store</span>
+                            <span class="text-cyan-400/90 font-semibold flex items-center gap-1"><i class="fa-solid fa-clock text-[10px]"></i> PRÓXIMAMENTE</span>
+                        </div>
+                        <div class="pt-4 border-t border-bordercolor flex items-center justify-between font-mono text-xs">
+                            <span class="text-zinc-500">Android / Google Play</span>
+                            <a href="https://play.google.com/store/apps/details?id=com.bit8.Whip" target="_blank" rel="noopener noreferrer" class="interactive-btn px-4 py-2 rounded-lg bg-cyan-950/60 text-cyan-400 border border-cyan-800/60 hover:bg-cyan-900/50 hover:text-white font-bold flex items-center gap-1.5 transition-all">
+                                <i class="fa-brands fa-google-play"></i> INSTALAR
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ink&Drop -->
+                <div class="cyber-card border border-bordercolor rounded-2xl p-7 flex flex-col justify-between md:col-span-2 lg:col-span-2">
+                    <div>
+                        <!-- Mockup de Pantalla de Celular (Estética Original) -->
+                        <div class="phone-mockup w-36 mx-auto mb-6 bg-zinc-950 border-2 border-zinc-800 rounded-3xl p-2.5 shadow-xl shadow-cyan-950/20">
+                            <div class="w-12 h-2.5 bg-zinc-800 rounded-full mx-auto mb-2"></div>
+                            <div class="bg-cyan-950/30 border border-cyan-900/40 rounded-2xl p-3 text-center font-mono text-[10px]">
+                                <div class="text-cyan-400 font-bold mb-1">INK & DROP</div>
+                                <div class="text-cyan-300 text-base my-1"><i class="fa-solid fa-droplet"></i></div>
+                                <div class="text-[8px] text-zinc-400">Zero Gravity Fluids</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-[11px] font-mono px-3 py-1 rounded-full bg-blue-950/60 border border-blue-800/50 text-cyan-400">Juego / Puzzle Táctil</span>
+                            <span class="text-xs text-cyan-400 font-mono">Física de Fluidos</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Ink&Drop</h3>
+                        <p class="text-sm text-zinc-400 mb-6 leading-relaxed">
+                            Experiencia táctil inmersiva de fluidos y colores donde mezclas tintas en gravedad cero para resolver complejos rompecabezas visuales y sonoros. Una obra de arte interactiva optimizada para pantallas táctiles y web.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex items-center justify-between text-[11px] font-mono text-zinc-500 mb-3 bg-zinc-900/50 px-3 py-1.5 rounded-lg border border-zinc-800/60 max-w-sm">
+                            <span>iOS App Store</span>
+                            <span class="text-cyan-400/90 font-semibold flex items-center gap-1"><i class="fa-solid fa-clock text-[10px]"></i> PRÓXIMAMENTE</span>
+                        </div>
+                        <div class="pt-4 border-t border-bordercolor flex items-center justify-between font-mono text-xs">
+                            <span class="text-zinc-500">Android / Google Play</span>
+                            <a href="https://play.google.com/store/apps/dev?id=bit8development" target="_blank" rel="noopener noreferrer" class="interactive-btn px-4 py-2 rounded-lg bg-cyan-950/60 text-cyan-400 border border-cyan-800/60 hover:bg-cyan-900/50 hover:text-white font-bold flex items-center gap-1.5 transition-all">
+                                <i class="fa-brands fa-google-play"></i> VER EN PLAY STORE
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Specs -->
+        <section id="specs" class="py-24 px-6 bg-zinc-950/60 border-y border-bordercolor">
+            <div class="max-w-7xl mx-auto w-full">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-xs font-mono text-cyan-400 uppercase tracking-widest bg-cyan-950/40 px-3.5 py-1.5 rounded-full border border-cyan-900/50">Capacidades Técnicas</span>
+                    <h2 class="text-3xl md:text-5xl font-black text-white mt-4 mb-6">Arquitectura & Desarrollo</h2>
+                    <p class="text-zinc-400 text-base md:text-lg">Tecnologías de punta y estándares de ingeniería exigentes para cada ecosistema.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="cyber-card border border-bordercolor p-6 rounded-2xl">
+                        <div class="w-10 h-10 rounded-lg bg-cyan-600/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-4">
+                            <i class="fa-solid fa-mobile-screen"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2 font-mono">Cross-Platform Apps</h3>
+                        <p class="text-sm text-zinc-400">Desarrollo nativo e híbrido optimizado para iOS y Android con rendimiento fluido de 60 FPS.</p>
+                    </div>
+
+                    <div class="cyber-card border border-bordercolor p-6 rounded-2xl">
+                        <div class="w-10 h-10 rounded-lg bg-purple-600/10 border border-purple-500/20 flex items-center justify-center text-purple-400 mb-4">
+                            <i class="fa-solid fa-gamepad"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2 font-mono">Game Engines</h3>
+                        <p class="text-sm text-zinc-400">Creación de videojuegos interactivos, mecánicas de arcade y rompecabezas procedurales.</p>
+                    </div>
+
+                    <div class="cyber-card border border-bordercolor p-6 rounded-2xl">
+                        <div class="w-10 h-10 rounded-lg bg-emerald-600/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-4">
+                            <i class="fa-solid fa-desktop"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2 font-mono">Desktop Software</h3>
+                        <p class="text-sm text-zinc-400">Aplicaciones de escritorio robustas para Windows y macOS enfocadas en productividad y comercios.</p>
+                    </div>
+
+                    <div class="cyber-card border border-bordercolor p-6 rounded-2xl">
+                        <div class="w-10 h-10 rounded-lg bg-blue-600/10 border border-blue-500/20 flex items-center justify-center text-blue-400 mb-4">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2 font-mono">Web Architecture</h3>
+                        <p class="text-sm text-zinc-400">Plataformas web de alta velocidad, PWAs interactivas y arquitecturas backend seguras.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="py-24 px-6 max-w-5xl mx-auto w-full">
+            <div class="cyber-card border border-bordercolor rounded-3xl p-8 md:p-14 shadow-2xl relative overflow-hidden">
+                <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-6">
+                        <span class="text-xs font-mono text-cyan-400 uppercase tracking-widest bg-cyan-950/40 px-3.5 py-1.5 rounded-full border border-cyan-900/50">Canal Directo</span>
+                        <h2 class="text-3xl md:text-4xl font-black text-white mt-4 mb-4">Conecta con bit8 development</h2>
+                        <p class="text-zinc-400 text-sm md:text-base mb-6 leading-relaxed">
+                            ¿Interesado en nuestras aplicaciones, juegos o desarrollo a la medida? Envíanos un mensaje directo al núcleo del estudio.
+                        </p>
+                        
+                        <div class="space-y-3 font-mono text-xs text-zinc-400">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-lg bg-zinc-900 border border-bordercolor flex items-center justify-center text-cyan-400">
+                                    <i class="fa-solid fa-terminal"></i>
+                                </div>
+                                <span>bit8development@gmail.com</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-lg bg-zinc-900 border border-bordercolor flex items-center justify-center text-emerald-400">
+                                    <i class="fa-brands fa-github"></i>
+                                </div>
+                                <span>github.com/slnit</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-6">
+                        <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
+                            <input type="hidden" name="access_key" value="a5f42da2-c333-4914-b258-619dcee45833">
+                            <div>
+                                <label class="block text-xs font-mono text-zinc-400 mb-1">IDENTIFICADOR / NOMBRE</label>
+                                <input type="text" name="name" required class="w-full bg-darkbg border border-bordercolor rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-500 transition-colors font-mono" placeholder="Tu nombre o empresa">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-mono text-zinc-400 mb-1">CORREO ELECTRÓNICO</label>
+                                <input type="email" name="email" required class="w-full bg-darkbg border border-bordercolor rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-500 transition-colors font-mono" placeholder="tu@correo.com">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-mono text-zinc-400 mb-1">MENSAJE / REQUERIMIENTO</label>
+                                <textarea name="message" rows="4" required class="w-full bg-darkbg border border-bordercolor rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-500 transition-colors font-mono resize-none" placeholder="Cuéntanos sobre tu proyecto..."></textarea>
+                            </div>
+                            <button type="submit" class="interactive-btn w-full py-3.5 rounded-xl font-mono text-xs font-bold bg-gradient-to-r from-cyan-500 to-blue-600 text-black hover:from-cyan-400 hover:to-blue-500 transition-all shadow-lg shadow-cyan-500/20">
+                                &gt; TRANSMITIR MENSAJE
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="border-t border-bordercolor py-12 px-6 bg-darkbg">
+            <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 font-mono text-xs">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-zinc-900 border border-bordercolor flex items-center justify-center font-bold text-cyan-400">
+                        b8
+                    </div>
+                    <span class="text-zinc-400">bit8 development &copy; 2026</span>
+                </div>
+                <div class="flex items-center gap-6 text-zinc-500">
+                    <a href="#hero" class="hover:text-cyan-400 transition-colors">/privacy</a>
+                    <a href="#projects" class="hover:text-cyan-400 transition-colors">/terms</a>
+                    <a href="#contact" class="hover:text-cyan-400 transition-colors">/support</a>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Script -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', (e) => {
+            const target = e.target.closest('.interactive-btn, .cyber-card, button, a');
+            if (target) {
+                const spark = document.createElement('div');
+                spark.className = 'click-spark';
+                spark.style.left = `${e.clientX}px`;
+                spark.style.top = `${e.clientY}px`;
+                document.body.appendChild(spark);
+                setTimeout(() => spark.remove(), 600);
+            }
+        });
+
+        const canvas = document.getElementById('tech-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let width, height;
+        let particles = [];
+
+        function resizeCanvas() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.size = Math.random() * 2 + 0.5;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                if (this.x < 0) this.x = width;
+                if (this.x > width) this.x = 0;
+                if (this.y < 0) this.y = height;
+                if (this.y > height) this.y = 0;
+            }
+
+            draw() {
+                ctx.fillStyle = 'rgba(0, 242, 254, 0.7)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < Math.floor(window.innerWidth / 18); i++) {
+            particles.push(new Particle());
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, width, height);
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 130) {
+                        ctx.strokeStyle = `rgba(0, 242, 254, ${0.18 * (1 - dist / 130)})`;
+                        ctx.lineWidth = 0.8;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animateParticles);
+        }
+
+        animateParticles();
+    </script>
+</body>
+</html>
