@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidad | bit8 development</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkbg: '#050508',
+                        cardbg: '#0c0d14',
+                        bordercolor: '#1f202e',
+                        accent: '#00f2fe',
+                        accentglow: '#4facfe',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts Inter & Fira Code -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #050508;
+            color: #f1f5f9;
+            overflow-x: hidden;
+        }
+        #tech-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.45;
+        }
+        .content-layer {
+            position: relative;
+            z-index: 10;
+        }
+        .cyber-card {
+            background: linear-gradient(135deg, rgba(12, 13, 20, 0.9) 0%, rgba(18, 20, 32, 0.6) 100%);
+        }
+        .click-spark {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0,242,254,0.8) 0%, rgba(79,172,254,0) 70%);
+            transform: translate(-50%, -50%) scale(0);
+            pointer-events: none;
+            animation: sparkEffect 0.6s ease-out forwards;
+            z-index: 9999;
+        }
+        @keyframes sparkEffect {
+            0% { transform: translate(-50%, -50%) scale(0.2); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(2.2); opacity: 0; }
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #050508; }
+        ::-webkit-scrollbar-thumb { background: #1f202e; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb-hover:hover { background: #00f2fe; }
+    </style>
+</head>
+<body class="bg-darkbg text-zinc-100 antialiased selection:bg-cyan-500 selection:text-black">
+
+    <canvas id="tech-canvas"></canvas>
+
+    <div class="content-layer min-h-screen flex flex-col justify-between">
+
+        <!-- Header -->
+        <header class="sticky top-0 z-50 backdrop-blur-xl bg-darkbg/85 border-b border-bordercolor">
+            <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center font-black text-black text-lg tracking-wider shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform font-mono">
+                        b8
+                    </div>
+                    <div>
+                        <span class="font-extrabold text-lg tracking-tight block text-white font-mono">bit8<span class="text-cyan-400">.dev</span></span>
+                        <span class="text-[10px] text-zinc-400 font-mono tracking-widest uppercase">Development Studio</span>
+                    </div>
+                </a>
+
+                <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400">
+                    <a href="index.html#hero" class="hover:text-cyan-400 transition-colors">Core</a>
+                    <a href="index.html#projects" class="hover:text-cyan-400 transition-colors">Aplicaciones & Juegos</a>
+                    <a href="index.html#specs" class="hover:text-cyan-400 transition-colors">Especialidades</a>
+                    <a href="index.html#contact" class="hover:text-cyan-400 transition-colors">Contacto</a>
+                </nav>
+
+                <div class="flex items-center gap-4">
+                    <a href="index.html#contact" class="interactive-btn hidden sm:inline-flex items-center justify-center px-4 py-2 rounded-lg text-xs font-mono font-bold bg-cyan-950/60 text-cyan-400 border border-cyan-800/60 hover:bg-cyan-900/50 hover:text-white transition-all">
+                        &gt; INIT_CONTACT
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="py-20 px-6 max-w-4xl mx-auto w-full">
+            <div class="cyber-card border border-bordercolor rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
+                <div class="absolute -top-10 -right-10 w-40 h-40 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-950/60 border border-cyan-800/50 text-cyan-400 text-xs font-mono mb-6 tracking-wide shadow-inner">
+                    <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+                    DOC_VERSION: 1.0 // LEGAL
+                </div>
+
+                <h1 class="text-3xl md:text-5xl font-black text-white mb-4 tracking-tight">Política de Privacidad</h1>
+                <p class="text-zinc-400 font-mono text-xs mb-8 pb-6 border-b border-bordercolor">Última actualización: Noviembre de 2026</p>
+
+                <div class="space-y-8 text-zinc-300 text-sm md:text-base leading-relaxed">
+                    <section>
+                        <h2 class="text-xl font-bold text-white mb-3 font-mono text-cyan-400">1. Introducción y Compromiso</h2>
+                        <p>En <strong>bit8 development</strong> (en adelante, "nosotros", "nuestro estudio"), valoramos y respetamos profundamente la privacidad de nuestros usuarios. Esta Política de Privacidad explica cómo recopilamos, usamos, divulgamos y protegemos su información cuando utiliza nuestras aplicaciones móviles (como <em>Sale Notes</em>, <em>Account Saver</em>, <em>Sudoki</em>, <em>One-Tap Defender</em>, etc.), videojuegos, sitio web y software multiplataforma.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl font-bold text-white mb-3 font-mono text-cyan-400">2. Información que Recopilamos</h2>
+                        <p class="mb-2">Nuestras aplicaciones están diseñadas bajo una filosofía de seguridad y optimización:</p>
+                        <ul class="list-disc pl-5 space-y-2 text-zinc-400 font-mono text-xs md:text-sm">
+                            <li><strong>Datos Almacenados Localmente (Offline-First):</strong> La mayoría de nuestras herramientas de productividad y seguridad (como <em>Sale Notes</em> y <em>Account Saver</em>) procesan y resguardan la información de notas, inventarios y credenciales de forma local en el dispositivo del usuario mediante bases de datos encriptadas, sin transmitirse a servidores externos.</li>
+                            <li><strong>Datos de Uso y Diagnóstico:</strong> Podemos recopilar información técnica no personal sobre el rendimiento de las apps, informes de fallos y registros de errores para mejorar la estabilidad de nuestros sistemas.</li>
+                            <li><strong>Formulario de Contacto y Comunicaciones:</strong> Cuando se comunica con nosotros a través de nuestro sitio web, recopilamos su nombre, correo electrónico y mensaje para atender sus requerimientos.</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl font-bold text-white mb-3 font-mono text-cyan-400">3. Uso de Anuncios y SDKs de Terceros</h2>
+                        <p>Algunas de nuestras aplicaciones gratuitas pueden integrar redes de publicidad de terceros (como Google AdMob) las cuales utilizan identificadores de publicidad estándar para mostrar anuncios relevantes. Le recomendamos revisar las políticas de privacidad de los proveedores de servicios asociados.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl font-bold text-white mb-3 font-mono text-cyan-400">4. Seguridad de los Datos</h2>
+                        <p>Implementamos medidas de seguridad técnicas y administrativas diseñadas para proteger la información contra accesos no autorizados, pérdidas o alteraciones. Sin embargo, ningún sistema de transmisión o almacenamiento digital es 100% infalible.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl font-bold text-white mb-3 font-mono text-cyan-400">5. Derechos del Usuario</h2>
+                        <p>Usted tiene derecho a acceder, rectificar o solicitar la eliminación de cualquier dato personal proporcionado directamente a nuestro estudio a través de nuestros canales de contacto oficiales.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl font-bold text-white mb-3 font-mono text-cyan-400">6. Contacto</h2>
+                        <p>Si tiene dudas, preguntas o inquietudes relacionadas con esta Política de Privacidad, puede ponerse en contacto directamente con el núcleo de desarrollo a través de:</p>
+                        <div class="mt-4 p-4 rounded-xl bg-zinc-900/60 border border-bordercolor font-mono text-xs text-cyan-400">
+                            <i class="fa-solid fa-terminal mr-2"></i> bit8development@gmail.com
+                        </div>
+                    </section>
+                </div>
+
+                <div class="mt-12 pt-6 border-t border-bordercolor flex justify-between items-center font-mono text-xs">
+                    <a href="index.html" class="text-cyan-400 hover:underline flex items-center gap-1.5">
+                        <i class="fa-solid fa-arrow-left"></i> VOLVER AL NÚCLEO
+                    </a>
+                    <span class="text-zinc-500">bit8.dev</span>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="border-t border-bordercolor py-12 px-6 bg-darkbg">
+            <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 font-mono text-xs">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-zinc-900 border border-bordercolor flex items-center justify-center font-bold text-cyan-400">
+                        b8
+                    </div>
+                    <span class="text-zinc-400">bit8 development &copy; 2026</span>
+                </div>
+                <div class="flex items-center gap-6 text-zinc-500">
+                    <a href="privacy.html" class="hover:text-cyan-400 transition-colors text-cyan-400 font-semibold">/privacy</a>
+                    <a href="index.html#projects" class="hover:text-cyan-400 transition-colors">/terms</a>
+                    <a href="index.html#contact" class="hover:text-cyan-400 transition-colors">/support</a>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Script de partículas y efectos -->
+    <script>
+        document.addEventListener('click', (e) => {
+            const target = e.target.closest('.interactive-btn, .cyber-card, button, a');
+            if (target) {
+                const spark = document.createElement('div');
+                spark.className = 'click-spark';
+                spark.style.left = `${e.clientX}px`;
+                spark.style.top = `${e.clientY}px`;
+                document.body.appendChild(spark);
+                setTimeout(() => spark.remove(), 600);
+            }
+        });
+
+        const canvas = document.getElementById('tech-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let width, height;
+        let particles = [];
+
+        function resizeCanvas() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.size = Math.random() * 2 + 0.5;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                if (this.x < 0) this.x = width;
+                if (this.x > width) this.x = 0;
+                if (this.y < 0) this.y = height;
+                if (this.y > height) this.y = 0;
+            }
+
+            draw() {
+                ctx.fillStyle = 'rgba(0, 242, 254, 0.7)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < Math.floor(window.innerWidth / 18); i++) {
+            particles.push(new Particle());
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, width, height);
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 130) {
+                        ctx.strokeStyle = `rgba(0, 242, 254, ${0.18 * (1 - dist / 130)})`;
+                        ctx.lineWidth = 0.8;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animateParticles);
+        }
+
+        animateParticles();
+    </script>
+</body>
+</html>
